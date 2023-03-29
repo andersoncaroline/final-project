@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>My Personalized List</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body onload="readList()">
+    <h1>My Shopping List</h1>
+    <input type="checkbox" class="toggle-switch" onclick="toggleSwitch()" id="sorting"/>
+        <label for="sorting"> Sort by Date</label>
+    <input type="checkbox" class="toggle-switch" onclick="toggleSwitch()" id="filter"/>
+        <label for="filter">Filter Completed Items</label>
+    
+    <ul class="shoppingList" id="list">
+
+    </ul>
+    <form class="form-create-item" onsubmit="createItem(event)">
+        <input placeholder="Please enter your item" class="textDateBackground" type="text" name="text" oninput="descStorage()" required id="description"/> </br>
+        <input class="textDateBackground" type="date" name="date" oninput="dateStorage()" required id="date"/> </br>
+        <input type="submit" value="Create Item" class="itemButton"/> </input> </br>
+    </form>
+    <button class="print-button" onclick="window.print()">Print This Page</button>
+
+    <script src="./js/ShoppingList.js"></script>
+</body>
+</html>
