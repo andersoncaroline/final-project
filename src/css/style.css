@@ -42,6 +42,7 @@ h1{
     display: inline-block;
     width: calc(100% - 12em);
     box-sizing: border-box;
+    padding: 10px;
 }
 .item-date{
     display: inline-block;
@@ -64,16 +65,16 @@ h1{
     font-size: inherit;
     cursor: pointer;
 }
-.input.checkbox-icon{
+.checkbox-icon{
     font-family: 'Material Icons';
     font-size: inherit;
     appearance: none;
     cursor: pointer;
 }
-.input.checkbox-icon::before{
+.checkbox-icon::before{
     content: 'check_box_outline_blank';
 }
-.input.checkbox-icon:checked::before{
+.checkbox-icon:checked::before{
     content: 'check_box';
 }
 .itemButton{
@@ -93,53 +94,46 @@ h1{
 }
 
 
-input.toggle-switch{
-    vertical-align: middle;
-    font-family: 'Material Icons';
-    content: '/e9f5';
-    font-size: 1em;
-    appearance: none;
+.toggle-switch {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+}
+
+.toggle-switch + label {
     position: relative;
     cursor: pointer;
-    margin: 0em 0.2em;
-    width: 1.4em;
-    height: 0.8em;
-
-}
-
-input.toggle-switch::after{
-    vertical-align: middle;
     display: inline-block;
-    position: absolute;
-    width: 1.4em;
-    height: 0.6em;
-    background-color: green;
-    border-radius: 0.3em;
+    height: 20px;
+    width: 40px;
+    background-color: #ddd;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
-.input.toggle-switch::before{
-    vertical-align: middle;
+
+.toggle-switch +label::before{
     content: '';
-    display: inline-block;
     position: absolute;
-    width: 0.7em;
-    height: 0.7em;
-    z-index: 1;
-    left: 0;
-    top: -0.1em;
-    border: 1px solid green;
-    border-radius: 0.6em;
-    background-color: green;
-    box-shadow: 1px 1px 3px var(--primary-text);
-    transition-duration: 0.3s;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 0.3s;
 }
-input.toggle-switch:checked::before{
-    left: 0.7em;
-    box-shadow: -1px 1px 3px var(--primary-text);
-}
-input.input.toggle-switch:checked::after{
-    background-color: aquamarine;
 
+.toggle-switch:checked +label{
+    background-color: #8bc34a;
 }
+
+.toggle-switch:checked +label::before{
+    background-color: #8bc34a;
+}
+
 .print-button{
     background-color: var(--links);
     color: var(--primary);
