@@ -161,15 +161,3 @@ let items =[];
 //     let dateStore = document.getElementById("date").value;
 //     localStorage.setItem("datebox", dateStore);
 // }
-
-/*
-//Working on making a footer and header to load
-async function loadHeaderFooter() {
-    const headerTemplate = await loadTemplate("../partials/header.html");
-    const headerElement = document.querySelector("#main-header");
-    const footerTemplate = await loadTemplate("../partials/footer.html");
-    const footerElement = document.querySelector("#main-footer");
-  
-    renderWithTemplate(headerTemplate, headerElement);
-    renderWithTemplate(footerTemplate, footerElement);
-  }*/

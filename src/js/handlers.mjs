@@ -1,6 +1,7 @@
-import ShoppingList from "./ShoppingList";
+import ShoppingList from "./ShoppingList.js";
 import { updateStorage, readStorage
- } from "./storage";
+ } from "./storage.js";
+ import{sortList, filterItems, sortItems, sortbyDate} from "./sorting.js"
 
  export function createItem(event){
     // Pulling data from the DOM, formatting it to JSON, and saving it to local storage
@@ -67,8 +68,8 @@ export function toggleSwitch(){
     //Pulling data from the DOM, grabbing the elements by ID,
     //filtering items by status
     let arrayCopy = readStorage();
-    sortbyDate = document.getElementById("sorting").checked;
-    filterByDescription = document.getElementById("filter").checked;
+    sortbyDate = document.querySelector("sorting").addEventListener("click", this.checked);
+    filterByDescription = document.querySelector("filter").addEventListener("click", this.checked);
     console.log(sortbyDate, filterByDescription);
     if(sortbyDate && filterByDescription){
         arrayCopy = sortList(arrayCopy);
