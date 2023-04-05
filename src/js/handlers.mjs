@@ -120,3 +120,18 @@ export function dateStorage(){
     let dateStore = document.getElementById("date").value;
     localStorage.setItem("datebox", dateStore);
 }
+
+// function to dynamically load the header and footer into a page
+export function loadHeaderFooter() {
+    fetch('public/partials/header.html')
+        .then(response => response.text())
+        .then(html => {
+            document.querySelector('#main-header').innerHTML = html;
+        });
+    fetch('public/partials/footer.html')
+        .then(response => response.text())
+        .then(html => {
+            document.querySelector('#main-footer').innerHTML = html;
+        });
+
+}

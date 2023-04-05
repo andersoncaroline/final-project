@@ -1,4 +1,4 @@
-import ShoppingList from "./ShoppingList";
+import ShoppingList from "./ShoppingList.js";
 // This function makes sure things are up to date
 export function updateStorage(jsonString){
     localStorage.setItem('database', JSON.stringify(jsonString));
