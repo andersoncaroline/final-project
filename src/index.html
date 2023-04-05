@@ -8,7 +8,8 @@
     <title>My Personalized List</title>
     <link rel="stylesheet" href="css/style.css"/>
 </head>
-<body onload="readList()">
+<body>
+    <header id="header"></header>
     <h1>My Shopping List</h1>
     <input type="checkbox" class="toggle-switch" onclick="toggleSwitch()" id="sorting"/>
         <label for="sorting"> Sort by Date</label>
@@ -18,13 +19,14 @@
     <ul class="shoppingList" id="list">
 
     </ul>
-    <form class="form-create-item" onsubmit="createItem(event)">
+    <form class="form-create-item" id="add-item-form" onsubmit="createItem(event)">
         <input placeholder="Please enter your item" class="textDateBackground" type="text" name="text" oninput="descStorage()" required id="description"/> </br>
         <input class="textDateBackground" type="date" name="date" oninput="dateStorage()" required id="date"/> </br>
         <input type="submit" value="Create Item" class="itemButton"/> </input> </br>
     </form>
     <button class="print-button" onclick="window.print()">Print This Page</button>
 
-    <script type="module" src="./js/ShoppingList.js"></script>
+    <footer id="footer"></footer>
+    <script src="js/index.js" type="module" ></script>
 </body>
 </html>

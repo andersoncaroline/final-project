@@ -28,14 +28,14 @@ export default class ShoppingList{
     }
 }
 
-let items =[];
+//let items =[];
 
 // // This function makes sure things are up to date
 // function updateStorage(jsonString){
 //     localStorage.setItem('database', JSON.stringify(jsonString));
 // }
 
-// // This function reads from what is in the storage
+// //This function reads from what is in the storage
 // function readStorage(){
 //     let jsonString = localStorage.getItem('database');
 //     let result = JSON.parse(jsonString)||[];
@@ -43,21 +43,21 @@ let items =[];
 //     return result;
 // }
 
-// This function creates a new item and pushes it into the array
+// // This function creates a new item and pushes it into the array
 // function createItem(event){
 //     // Pulling data from the DOM, formatting it to JSON, and saving it to local storage
 
 //     let items = readStorage();
 //     event.preventDefault();
 
-//     const desc = document.getElementById("description").value;
-//     const date = document.getElementById("date").value;
-//     const item = new ShoppingList({text: desc, done: false, date: date, id: Date.now()});
-//     items.push(item);
-//     localStorage.removeItem("");
-//     localStorage.removeItem("");
+//    const desc = document.getElementById("description").value;
+//    const date = document.getElementById("date").value;
+//    const item = new ShoppingList({text: desc, done: false, date: date, id: Date.now()});
+//    items.push(item);
+//    localStorage.removeItem("");
+//    localStorage.removeItem("");
 
-//     updateStorage(items);
+//    updateStorage(items);
 
 //     readList();
 // }
@@ -71,10 +71,9 @@ let items =[];
 //         string += items[i].toHTML();
 //     }
 //     document.getElementById("list").innerHTML = string;
-
 //     document.getElementById("description").value = localStorage.getItem("descriptionbox");
 //     document.getElementById("date").value = localStorage.getItem("datebox");   
-    
+   
 // }
 
 // //This function updates the list items to be done in the array
@@ -108,7 +107,7 @@ let items =[];
 // //The value is either negative, positive, or zero
 // function sortList(arrayCopy){
 //     return arrayCopy.sort(function(a,b){
-//         return new Date(b.date) - new Date(a.date);
+//     return new Date(b.date) - new Date(a.date);
 //     });
 // }
 
