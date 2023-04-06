@@ -60,6 +60,10 @@ export function deleteItemList(id){
         }
     }
     updateStorage(items);
+    const deleteButton = document.getElementById('item-delete');
+    deleteButton.addEventListener('click', function(){
+        deleteItemList(id);
+    });
     readList();
 }
 

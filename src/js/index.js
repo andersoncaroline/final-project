@@ -7,22 +7,29 @@ import ShoppingList from "./ShoppingList.js";
         readList();
     });
 
-    const updateButton = document.querySelector("#item-done");
-    const myShoppingList = new ShoppingList({id});
+    const updateButton = document.querySelector("item-done");
+    const desc = document.getElementById("description").value;
+    const myShoppingList = new ShoppingList({text: desc, done: false, date: date, id: Date.now()});
 
-    updateButton.addEventListener('click', () =>{
+    if (updateButton){
+        updateButton.addEventListener('click', () =>{
 
-        updateItem(myShoppingList.id);
-    });
+            updateItem(myShoppingList.desc);
+        });
+    }
     const deleteButton = document.querySelector("#item-delete");
 
-    deleteButton.addEventListener('click', () => {
-        deleteItemList(myShoppingList.id);
-    });
+    if(deleteButton){
+        deleteButton.addEventListener('click', () => {
+            deleteItemList(myShoppingList.desc);
+        });
+    }
+    
     document.getElementById("add-item-form").addEventListener ('submit', createItem);
     document.getElementById("sorting").addEventListener('click', toggleSwitch);
     document.getElementById("filter").addEventListener('click', toggleSwitch);
     document.getElementById("description").addEventListener('keyup', descStorage);
     document.getElementById("date").addEventListener('change', dateStorage);
     readList();
-    loadHeaderFooter();
+
+    loadHeaderFooter(); 
