@@ -25,12 +25,21 @@ export function createItem(event){
 //This function reads the list that is being created
 export function readList(){
     //Pulling data from the DOM, using toHTML() to parse, updating DOM
-    let items = readStorage();
-    let string = "";
-    for (let i = 0; i < items.length; i++){
-        string += items[i].toHTML();
-    }
-    document.getElementById("list").innerHTML = string;
+    const initialList = readStorage();
+    const sortbyDate = document.getElementById("sorting").checked;
+    const filterDone = document.getElementById("filter").checked;
+
+    const sortedFilteredList = initialList.filter((item) => {
+        if (filterDone) return !item.done
+
+        return true
+    }).sort((itemA, itemB) => {
+        if (sortbyDate) return new Date(itemA.date) - new Date(itemB.date)
+
+        return itemA.text.toLowerCase().localeCompare(itemB.text.toLowerCase())
+    })
+
+    document.getElementById("list").innerHTML = sortedFilteredList.map(item => item.toHTML()).join('\n');
     document.getElementById("description").value = localStorage.getItem("descriptionbox");
     document.getElementById("date").value = localStorage.getItem("datebox");   
    
@@ -60,10 +69,6 @@ export function deleteItemList(id){
         }
     }
     updateStorage(items);
-    const deleteButton = document.getElementById('item-delete');
-    deleteButton.addEventListener('click', function(){
-        deleteItemList(id);
-    });
     readList();
 }
 
@@ -77,25 +82,8 @@ export function sortList(arrayCopy){
 
 //This function makes sure that the sortin and filtering functions work
 export function toggleSwitch(){
-    //Pulling data from the DOM, grabbing the elements by ID,
-    //filtering items by status
-    let arrayCopy = readStorage();
-    sortbyDate = document.getElementById("sorting").checked;
-    filterByDescription = document.getElementById("filter").checked;
-    console.log(sortbyDate, filterByDescription);
-    if(sortbyDate && filterByDescription){
-        arrayCopy = sortList(arrayCopy);
-        arrayCopy = filterItems(arrayCopy);
-        sortItems(arrayCopy);
-    } else if (!sortbyDate && !filterByDescription){
-        arrayCopy = sortList(arrayCopy);
-        sortItems(arrayCopy);
-    } else if(!sortbyDate && filterByDescription){
-        arrayCopy = filterItems(arrayCopy);
-        sortItems(arrayCopy);
-    } else{
-        readList();
-    }
+    // just reload the list. It will automatically sort and filter
+    readList()
 }
 
 //This function parses the tasks using the toHTML()
