@@ -6,7 +6,6 @@ export default class ShoppingList{
         this.done = done;
         this.id = id;
     }
-
     //Return what will be visible when customers input tasks/items
     toHTML(){
         return`
@@ -14,7 +13,7 @@ export default class ShoppingList{
             <input type='checkbox' onclick="updateItem(${this.id})" ${this.done ? "checked": ""} class="item-done checkbox-icon"/>
             <span class="item-description ${this.done ? "strikethrough" : ""} ">${this.text}</span>
             <span class="item-date">${this.prettyDate()}</span>
-            <button type="submit" onclick="deleteItem(${this.id})" class="item-delete material-icon">delete</button>
+            <button type="submit" onclick="deleteItemList(${this.id})" class="item-delete material-icon">delete</button>
         </li>`
     }
     //Converting the date to be MM/DD/YYYY
